@@ -1,0 +1,116 @@
+@import url("headerstyle.css");
+@import url("navstyle.css");
+@import url("footerstyle.css");
+@import url("menustyle.css");
+*{
+	margin:0;
+	padding:0;
+}
+body{
+	width:950px;
+	margin:auto;
+	background-color:#000;
+	font-family:arial;
+}
+#main{
+	height:600px;
+	background-color:#888;
+	position:relative;
+	padding:30px 30px 30px 30px;
+}
+h2{
+	font-size:30px;
+	line-height:30px;
+	font-weight:bold;
+	color:#BD0;
+}
+input{
+	background:#AAA;
+	margin:3px;
+	border-radius:10px;
+	padding-left:5px;
+}
+button{
+	background:#AAA;
+	margin:3px;
+}
+#search{
+	background: url("../images/search.png") no-repeat center center;
+	width:32px;
+	height:32px;
+	border:none;
+	color:transparent;
+	cursor:pointer;
+}
+#create{
+	float:left;
+	background: url("../images/create.png") no-repeat center center;
+	width:32px;
+	height:32px;
+	border:none;
+	color:transparent;
+	cursor:pointer;
+}
+#Delete{
+	float:left;
+	background: url("../images/delete.png") no-repeat center center;
+	width:32px;
+	height:32px;
+	border:none;
+	color:transparent;
+	cursor:pointer;
+}
+table{
+	clear:both;
+}
+tr:nth-child(even){
+	background-color:#999;
+}
+tr:nth-child(odd){
+	background-color:#777;
+}
+th{
+	background-color:#333;
+	color:#BBB;
+}
+th a{
+	color:#BD0;
+	text-decoration:none;
+}
+.checkboxColumn{
+	width:10px;
+}
+.nameColumn{
+	width:210px;
+	padding:0px 5px 0px 5px;
+}
+.companyColumn{
+	width:210px;
+	padding:0px 5px 0px 5px;
+}
+.jobTitleColumn{
+	width:210px;
+	padding:0px 5px 0px 5px;
+}
+.emailAddressColumn{
+	width:210px;
+	padding:0px 5px 0px 5px;
+}
+td a{
+	color:#000;
+	text-decoration:none;
+}
+td a:hover{
+	color:#BD0;
+}
+.tableCount{
+	text-align:center;
+}
+#tableControl{
+	text-align:center;
+}
+#tableControl a{
+	color:#BD0;
+	text-decoration:none;
+	padding:0px 10px 0px 10px;
+}

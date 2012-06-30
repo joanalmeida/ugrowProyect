@@ -1,0 +1,123 @@
+@import url("headerstyle.css");
+@import url("navstyle.css");
+@import url("footerstyle.css");
+@import url("menustyle.css");
+*{
+	margin:0;
+	padding:0;
+}
+body{
+	width:950px;
+	margin:auto;
+	background-color:#000;
+	font-family:arial;
+}
+#main{
+	height:600px;
+	background-color:#888;
+	position:relative;
+	padding:30px 30px 30px 30px;
+}
+h2{
+	font-size:30px;
+	line-height:30px;
+	font-weight:bold;
+	color:#BD0;
+}
+label{
+	width: 10em;
+	float: left;
+	text-align: right;
+	margin-right: 1em;
+	clear:both;
+	font-weight:bold;
+}
+p{
+	margin-bottom:5px;
+	clear:both;
+}
+input{
+	background:#AAA;
+	width:250px;
+	border-radius:10px;
+	padding-left:5px;
+}
+textarea{
+	background:#AAA;
+	resize: none;
+	width:250px;
+	font-family:inherit;
+	font-size: 13px;
+	border-radius:10px;
+	padding-left:5px;
+}
+#charactersLeft{
+	margin-left:18em;
+	margin-bottom:0px;
+	font-size:10px;
+}
+select{
+	background:#AAA;
+	width:250px;
+	border-radius:10px 0px 0px 10px;
+	padding-left:5px;
+}
+#languageSpoken{
+	margin-left:11em;
+	height:15px;
+}
+#main a{
+	font-size:10px;
+	color:#000;
+	text-decoration:none;
+	float:left;
+	margin-right:3px;
+	cursor:pointer;
+}
+#main a:hover{
+	color:#BD0;
+}
+#submitButton{
+	margin-left:11em;
+}
+#submitButton input{
+	width:auto;
+}
+#save{
+	background: url("../images/save.png") no-repeat center center;
+	width:30px;
+	height:30px;
+	border:none;
+	color:transparent;
+	cursor:pointer;
+	float:left;
+}
+#cancel{
+	background: url("../images/cancel.png") no-repeat center center;
+	width:30px;
+	height:30px;
+	border:none;
+	color:transparent;
+	cursor:pointer;
+	float:left;
+}
+#changeImg{
+    border:none;
+	color:transparent;
+	cursor:pointer;
+	float:left;
+    margin-left: 2px;
+}
+#information{
+	float: left;
+}
+#img-profile{
+	float :right;
+	margin-right: 100px;
+	margin-top: 20px;
+	width: 250px;
+	height: 250px;
+	padding: 5px;
+	border:2px solid #BD0;
+	border-radius:10px;
+}

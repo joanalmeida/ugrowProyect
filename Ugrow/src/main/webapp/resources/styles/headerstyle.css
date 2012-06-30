@@ -1,0 +1,18 @@
+header{
+	height:100px;
+	background-color:#BD0;
+	position:relative;
+	padding:20px 50px 20px 50px;
+}
+header h1{
+	font-size:70px;
+	line-height:100px;
+	font-weight:bold;
+	color:#000;
+	float:left;
+}
+
+#logoGlobant{
+   float:right;
+   margin:35px;
+}

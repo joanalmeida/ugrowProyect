@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<title>Home</title>
+		<link href="resources/styles/homestyle.css" rel="stylesheet" type="text/css">		
+	</head>
+	<body>
+		#parse("header.html")
+		#parse("nav.html")
+		<section id="main">
+			<h2>Home</h2>
+			<br/>
+			<p>Welcome to Dashboard ${userName}!</p>
+			<p>This is an application which manages users with different attributes and roles. It has been developed as a training project for the Ugrow initiative at Globant.</p>
+			<p>Thank you for using our application!</p>
+			<p id="signature">- The Ugrow Team</p>
+		</section>
+		#parse("footer.html")
+	</body>
+</html>

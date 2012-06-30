@@ -1,0 +1,10 @@
+<nav>
+	<ul id="menu">
+		<li><a href="/Ugrow/home">Home</a></li>
+		<li><a href="/Ugrow/profile?id=${userId}">Profile</a></li>
+		#if(${isSupervisor})
+			<li><a href="/Ugrow/dashboard">Dashboard</a></li>
+		#end
+		<li><a href="/Ugrow/j_spring_security_logout">Logout</a></li>
+	</ul>
+</nav>

@@ -1,0 +1,75 @@
+<html>
+	<head>
+		<title>Dashboard</title>		
+		<link href="resources/styles/dashboardstyle.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		#parse("header.html")
+		#parse("nav.html")
+		<section id="main">
+			<h2>Dashboard</h2>
+			<br/>
+			<form method="post" action="/Ugrow/dashboard">
+				<input type="text" name="searchValue" value="${search}"/>
+				<input type="submit" id="search" value="Search" title="Search"/>
+				<input type="hidden" name="pag" value="0"/>
+			</form>
+			<form method="post" action="/Ugrow/profile">
+				<input type="hidden" name="create" value="true"/>
+				<input type="submit" id="create" value="Create User" title="Create User"/>
+			</form>
+			<button type="button" id="Delete" title="Delete">Delete</button>
+			<br/>
+			<form method="post" action="/Ugrow/dashboard" id="DeleteForm" name="DeleteForm">
+				<table>
+					<tr>
+						<th class="checkboxColumn">
+							<button type="button" id="SelectAll" title="Select all"></button>
+						</th>
+						<th class="nameColumn">
+							Name
+							<a href="/Ugrow/dashboard?orderIndex=name&order=ASC">/\</a>
+							<a href="/Ugrow/dashboard?orderIndex=name&order=DESC">\/</a>
+						</th>
+						<th class="companyColumn">
+							Company
+							<a href="/Ugrow/dashboard?orderIndex=company&order=ASC">/\</a>
+							<a href="/Ugrow/dashboard?orderIndex=company&order=DESC">\/</a>	
+						</th>
+						<th class="jobTitleColumn">
+							Job Title
+							<a href="/Ugrow/dashboard?orderIndex=jobTitle&order=ASC">/\</a>
+							<a href="/Ugrow/dashboard?orderIndex=jobTitle&order=DESC">\/</a>	
+						</th>
+						<th class="emailAddressColumn">
+							Email address
+							<a href="/Ugrow/dashboard?orderIndex=email&order=ASC">/\</a>
+							<a href="/Ugrow/dashboard?orderIndex=email&order=DESC">\/</a>
+						</th>
+					</tr>
+					#foreach(${u} in ${users})
+						<tr>
+							<td class="checkboxColumn"><input type="checkbox" name="${velocityCount}" value="${u.getIdUser()}"/></td>
+							<td class="nameColumn"><a href="/Ugrow/profile?id=${u.getIdUser()}">${u.getName()}</a></td>
+							<td class="companyColumn">${u.getCompany()}</td>
+							<td class="jobTitleColumn">${u.getJobTitle()}</td>
+							<td class="emailAddressColumn">${u.getEmail()}</td>
+						</tr>
+					#end
+				</table>
+				<input type="hidden" name="userId" id="userId" value="${userId}"/>
+			</form>
+			#if(${users.size()}==0)
+				<p class="tableCount">No results were found.</p>
+			#else
+				<p class="tableCount">${from}-${to} of ${userCount}</p>
+			#end
+			<div id="tableControl">
+				<a href="/Ugrow/dashboard?pag=${previous}"><<</a>
+				<a href="/Ugrow/dashboard?pag=${next}">>></a>
+			</div>
+		</section>
+		#parse("footer.html")
+		<script type="text/javascript" src="resources/js/dashboard.js"></script>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+nav{
+	height:35px;
+	background-color:#333;
+	position:relative;
+}
+nav li{
+	list-style-type:none;
+	float:left;
+	margin-left:20px;
+	background-color:#222;
+	border-radius:10px 10px 0 0;
+	width:100px;
+	height:35px;
+	text-align:center;
+	line-height:35px;
+	position:relative;
+	z-index:10;
+}
+nav li:hover{
+	background-color:#444;
+}
+nav li a{
+	color:#BD0;
+	text-decoration:none;
+}

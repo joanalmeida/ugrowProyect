@@ -1,0 +1,174 @@
+<html>
+	<head>
+		<title>Profile</title>		
+		<link href="resources/styles/profilestyle.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		#parse("header.html")
+		#parse("nav.html")
+		<section id="main">			
+			#if(${create})
+				<h2>Creating User</h2>
+			#else
+				<h2>Profile</h2>
+			#end
+			#if(${user.getImgUrl()})
+				<img id="img-profile" src="$!{user.getImgUrl()}" />
+			#else
+			  <img id="img-profile" src="http://beta.gamevue.net/images/default_profile.jpg"/>
+		   	#end
+			<br/>
+			<div id="information">
+			<form method="post" action="/Ugrow/profile">
+				#if(${isSupervisor})
+					<p>
+						<label>Name:</label>
+						<input type="text" name="name" value="$!{user.getName()}" maxlength="50" required/>
+					</p>
+					<p>
+						<label>Company:</label>
+						<input type="text" name="company" value="$!{user.getCompany()}" maxlength="50" required/>
+					</p>
+					<p>
+						<label>Job Title:</label>
+						<input type="text" name="jobTitle" value="$!{user.getJobTitle()}" maxlength="50" required/>
+					</p>
+				#else
+					<p>
+						<label>Name:</label>
+						<input type="text" name="name" value="$!{user.getName()}" maxlength="50" required disabled="disabled"/>
+					</p>
+					<p>
+						<label>Company:</label>
+						<input type="text" name="company" value="$!{user.getCompany()}" maxlength="50" required disabled="disabled"/>
+					</p>
+					<p>
+						<label>Job Title:</label>
+						<input type="text" name="jobTitle" value="$!{user.getJobTitle()}" maxlength="50" required disabled="disabled"/>
+					</p>
+				#end
+				<p>
+					<label>Email Address:</label>
+					<input type="email" name="email" value="$!{user.getEmail()}" maxlength="200" required/>
+				</p>
+				<p>
+					<label>Experience:</label>
+					<textarea rows="5" name="experience" maxlength="500" id="experienceText">$!{user.getExperience()}</textarea>
+					<p id="charactersLeft">500 characters left</p>
+				</p>
+				<p>
+					<label>Languages spoken:</label>
+					<select multiple id="languages" name="languages">
+ 						<option id="english">English</option>
+  						<option id="french">French</option>
+  						<option id="german">German</option>
+  						<option id="italian">Italian</option>
+  						<option id="portuguese">Portuguese</option>
+  						<option id="spanish">Spanish</option>
+					</select>
+				</p>
+				<div id="languageSpoken">
+					<div id="englishDiv">
+						#if(${user.getLanguages().contains("english")})
+							<a id="englishSpoken">English</a><input type="hidden" name="english" value="true"/>
+						#end
+					</div>
+					<div id="frenchDiv">
+						#if(${user.getLanguages().contains("french")})	
+							<a id="frenchSpoken">French</a><input type="hidden" name="french" value="true"/>
+						#end
+					</div>
+					<div id="germanDiv">
+						#if(${user.getLanguages().contains("german")})	
+							<a id="germanSpoken">German</a><input type="hidden" name="german" value="true"/>
+						#end
+					</div>
+					<div id="italianDiv">
+						#if(${user.getLanguages().contains("italian")})	
+							<a id="italianSpoken">Italian</a><input type="hidden" name="italian" value="true"/>
+						#end
+					</div>
+					<div id="portugueseDiv">
+						#if(${user.getLanguages().contains("portuguese")})	
+							<a id="portugueseSpoken">Portuguese</a><input type="hidden" name="portuguese" value="true"/>
+						#end
+					</div>
+					<div id="spanishDiv">
+						#if(${user.getLanguages().contains("spanish")})	
+							<a id="spanishSpoken">Spanish</a><input type="hidden" name="spanish" value="true"/>	
+						#end
+					</div>
+				</div>
+				#if($isSupervisor)
+					<p>
+						<label>Username:</label>
+						<input type="text" name="username" value="$!{user.getUsername()}" maxlength="50" required/>
+					</p>
+					<p>
+						<label>Password:</label>
+						<input type="password" name="password" value="$!{user.getPassword()}" maxlength="50" required/>
+					</p>
+					<p>
+						<label>Role:</label>
+						<select name="role">
+							#foreach(${role} in ${roles})
+								#if(${user.getRole().equals(${role})})
+									<option value="${role.getName()}" selected>${role.getName()}</option>
+								#else
+									<option value="${role.getName()}">${role.getName()}</option>
+								#end
+							#end
+						</select> 
+					</p>
+				#else
+					<p>
+						<label>Username:</label>
+						<input type="text" name="username" value="$!{user.getUsername()}" maxlength="50" required disabled="disabled"/>
+					</p>
+					<p>
+						<label>Password:</label>
+						<input type="password" name="password" value="$!{user.getPassword()}" maxlength="50" required disabled="disabled"/>
+					</p>
+					<p>
+						<label>Role:</label>
+						<select name="role" disabled="disabled">
+							#if($!{user.getRole().getName()}=="teller")
+								<option value="teller" selected>Teller</option>
+							#else
+								<option value="teller">Teller</option>
+							#end
+							#if($!{user.getRole().getName()}=="user")
+								<option value="user" selected>User</option>
+							#else
+								<option value="user">User</option>
+							#end
+							#if($!{user.getRole().getName()}=="supervisor")
+								<option value="supervisor" selected>Supervisor</option>
+							#else
+								<option value="supervisor">Supervisor</option>
+							#end
+						</select> 
+					</p>
+				#end
+					<p>
+						<label>Image Url:</label>
+						<input name="imgUrl" id="imgUrl" type="text" value="$!{user.getImgUrl()}">
+					</p>
+				<p id="submitButton">
+					<input type="submit" id="save" value="Save" title="Save"/>
+				</p>
+				<input type="hidden" name="id" value="$!{user.getIdUser()}"/>
+			</form>
+			#if(${isSupervisor})
+				<form action="/Ugrow/dashboard" method="POST">					
+			#else
+				<form action="/Ugrow/home" method="POST">
+			#end
+				<input type="submit" id="cancel" value="Cancel" title="Cancel"/>
+			</form>
+			</div>	
+		</section>
+		#parse("footer.html")
+		<script type="text/javascript" src="resources/js/profile.js"></script>
+	</body>
+</html>
